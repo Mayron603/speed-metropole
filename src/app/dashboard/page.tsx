@@ -10,9 +10,15 @@ import { Button } from "@/components/ui/button";
 
 // The order of this array defines the role hierarchy, from highest to lowest rank.
 const roleHierarchy = [
+  { id: "1334721407971622999", name: "Chefe de Policia LSPD" },
+  { id: "1362266595820306546", name: "Assistente Chefe de Policia" },
+  { id: "1334721407971622997", name: "Comandante LSPD" },
+  { id: "1394081844148047983", name: "Comandante SPEED" },
+  { id: "1334721407971622996", name: "SubComandante LSPD" },
   { id: "1394081883498745886", name: "SubComandante Speed" },
   { id: "1383912650035036172", name: "Cabo" },
-  // Add other roles here in descending order of importance
+  { id: "1334721407963365406", name: "Soldado" },
+  { id: "1334721407954714683", name: "Recruta" },
 ];
 
 function getUserRole(userRoles: string[] = []): string {
