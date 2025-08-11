@@ -50,7 +50,54 @@ export async function applyAction(
     };
   }
 
-  console.log("Nova Aplicação Recebida:", validatedFields.data);
+  const { fullName, age, discord, steamHex, rpExperience, motivation, availability } = validatedFields.data;
+  const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
+
+  if (!webhookUrl) {
+    console.error("Discord webhook URL not configured.");
+    return { message: "Erro de servidor: O webhook do Discord não está configurado." };
+  }
+
+  const discordPayload = {
+    username: "S.P.E.E.D. Recrutamento",
+    avatar_url: "https://i.imgur.com/gG4gU3R.png",
+    embeds: [
+      {
+        title: `Nova Inscrição: ${fullName}`,
+        color: 2712319, // SPEED Blue color
+        fields: [
+          { name: "Nome Completo", value: fullName, inline: true },
+          { name: "Idade", value: age, inline: true },
+          { name: "Discord", value: discord, inline: true },
+          { name: "Steam HEX", value: steamHex, inline: true },
+          { name: "Experiência com RP", value: rpExperience },
+          { name: "Motivação", value: motivation },
+          { name: "Disponibilidade", value: availability },
+        ],
+        footer: {
+          text: `Inscrição recebida em: ${new Date().toLocaleString("pt-BR")}`,
+        },
+      },
+    ],
+  };
+
+  try {
+    const response = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(discordPayload),
+    });
+
+    if (!response.ok) {
+      console.error(`Discord webhook failed with status: ${response.status}`);
+      return { message: "Houve um erro ao enviar sua aplicação para o Discord." };
+    }
+  } catch (error) {
+    console.error("Failed to send application to Discord:", error);
+    return { message: "Houve um erro de conexão ao enviar sua aplicação." };
+  }
+
+  console.log("Nova Aplicação Recebida e enviada para o Discord:", validatedFields.data);
 
   return { message: "Aplicação enviada com sucesso! Entraremos em contato em breve." };
 }
