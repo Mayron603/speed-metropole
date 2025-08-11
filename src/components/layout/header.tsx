@@ -56,9 +56,9 @@ function UserNav() {
         </DialogTrigger>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="font-headline text-3xl text-center">Acesso Restrito</DialogTitle>
+            <DialogTitle className="font-headline text-3xl text-center">Entrar com Discord</DialogTitle>
             <DialogDescription className="text-center pt-2">
-              O acesso ao painel de membros é exclusivo para operadores e é feito através do Discord.
+              Para acessar o painel e ter seus dados preenchidos automaticamente no formulário, conecte-se com sua conta do Discord.
             </DialogDescription>
           </DialogHeader>
           <div className="py-4">
