@@ -14,7 +14,7 @@ export default function Home() {
               Unidade S.P.E.E.D
             </h1>
             <p className="mt-4 text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto">
-              Special Police Emergency Enforcement Division: A elite tática da LSPD, pronta para as missões mais críticas de Grande Metrópole.
+              Special Police Emergency Enforcement Division: A unidade de resposta rápida da LSPD, especializada em perseguições de alto risco e apoio tático em Grande Metrópole.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/vacancies">
@@ -32,7 +32,7 @@ export default function Home() {
         <div className="container px-4 md:px-6">
           <h2 className="font-headline text-3xl font-bold tracking-tighter text-center sm:text-4xl md:text-5xl">Sobre a Unidade</h2>
           <p className="mx-auto max-w-3xl text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-center mt-4">
-            A SPEED é a resposta da LSPD para situações de alto risco. Nossos operadores são treinados para excelência em táticas, negociação e execução de mandados.
+            A SPEED é a unidade de apoio rápido da LSPD, focada em perseguições e situações que exigem agilidade e precisão. Nossos operadores são treinados para interceptações veiculares e resposta imediata.
           </p>
           <div className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-1 md:gap-12 lg:max-w-5xl lg:grid-cols-3 mt-12">
             <Card className="shadow-lg hover:shadow-xl transition-shadow">
@@ -44,7 +44,7 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  Proteger e servir a comunidade de Grande Metrópole, neutralizando ameaças com precisão, profissionalismo e o mínimo de força necessária.
+                  Proteger a comunidade de Grande Metrópole através de intervenções rápidas em perseguições, garantindo a segurança de civis e a captura de suspeitos.
                 </p>
               </CardContent>
             </Card>
