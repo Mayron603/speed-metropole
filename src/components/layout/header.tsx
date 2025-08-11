@@ -3,11 +3,23 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu } from "lucide-react";
+import { Menu, LogOut, LayoutDashboard } from "lucide-react";
+import { useSession, signOut } from "next-auth/react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Skeleton } from "@/components/ui/skeleton";
+
 
 const navItems = [
   { href: "/", label: "Início" },
@@ -17,6 +29,58 @@ const navItems = [
   { href: "/apply", label: "Inscreva-se" },
   { href: "/contact", label: "Contato" },
 ];
+
+function UserNav() {
+  const { data: session, status } = useSession();
+
+  if (status === "loading") {
+    return <Skeleton className="h-10 w-28" />;
+  }
+
+  if (status === "unauthenticated") {
+    return (
+      <Link href="/login">
+        <Button variant="outline">Painel do Membro</Button>
+      </Link>
+    );
+  }
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" className="relative h-10 w-10 rounded-full">
+          <Avatar className="h-10 w-10">
+            <AvatarImage src={session?.user?.image ?? undefined} alt={session?.user?.name ?? ""} />
+            <AvatarFallback>{session?.user?.name?.charAt(0)}</AvatarFallback>
+          </Avatar>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56" align="end" forceMount>
+        <DropdownMenuLabel className="font-normal">
+          <div className="flex flex-col space-y-1">
+            <p className="text-sm font-medium leading-none">{session?.user?.name}</p>
+            <p className="text-xs leading-none text-muted-foreground">
+              {session?.user?.email}
+            </p>
+          </div>
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem asChild>
+          <Link href="/dashboard">
+            <LayoutDashboard className="mr-2 h-4 w-4" />
+            <span>Painel</span>
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem onClick={() => signOut({ callbackUrl: '/' })}>
+          <LogOut className="mr-2 h-4 w-4" />
+          <span>Sair</span>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
+
 
 export function Header() {
   const pathname = usePathname();
@@ -47,9 +111,9 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-           <Link href="/login">
-              <Button variant="outline">Painel do Membro</Button>
-            </Link>
+           <div className="hidden md:block">
+            <UserNav />
+          </div>
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="md:hidden">
@@ -80,9 +144,9 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
-                 <Link href="/login" className="text-muted-foreground transition-colors hover:text-primary">
-                    Painel do Membro
-                 </Link>
+                 <div className="mt-4">
+                  <UserNav />
+                 </div>
               </nav>
             </SheetContent>
           </Sheet>
