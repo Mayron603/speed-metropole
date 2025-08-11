@@ -7,9 +7,9 @@ export default function LoginPage() {
     <div className="flex items-center justify-center py-24 px-4">
       <Card className="w-full max-w-sm text-center">
         <CardHeader>
-          <CardTitle className="font-headline text-3xl">Acesso Restrito</CardTitle>
+          <CardTitle className="font-headline text-3xl">Entrar com Discord</CardTitle>
           <CardDescription className="pt-2">
-            O acesso ao painel de membros é exclusivo para operadores e é feito através do Discord.
+            Para acessar o painel e ter seus dados preenchidos automaticamente no formulário, conecte-se com sua conta do Discord.
           </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4">
