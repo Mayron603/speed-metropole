@@ -11,6 +11,7 @@ import { SpeedLogo } from "@/components/icons";
 
 const navItems = [
   { href: "/", label: "Início" },
+  { href: "/hierarchy", label: "Hierarquia" },
   { href: "/vacancies", label: "Vagas" },
   { href: "/manuals", label: "Manuais" },
   { href: "/apply", label: "Inscreva-se" },
