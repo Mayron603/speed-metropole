@@ -11,7 +11,7 @@ export function Footer() {
             <Image src="/img/logo.png" alt="SPEED Logo" width={24} height={24} />
           </div>
           <p className="text-center text-sm leading-loose md:text-left text-muted-foreground">
-            © {currentYear} S.P.E.E.D - Special Police Emergency Enforcement Division. Todos os direitos reservados.
+            © {currentYear} S.P.E.E.D - Direitos reservados para Tinga.
           </p>
         </div>
       </div>
