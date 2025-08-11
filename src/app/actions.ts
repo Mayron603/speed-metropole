@@ -60,11 +60,11 @@ export async function applyAction(
 
   const discordPayload = {
     username: "S.P.E.E.D. Recrutamento",
-    avatar_url: "https://i.imgur.com/gG4gU3R.png",
+    avatar_url: "https://cdn.discordapp.com/attachments/1110324893750403072/1404506157560889455/logo.png?ex=689b6fca&is=689a1e4a&hm=930a829ab26ba321e1b60377981837d77d42659252cb712d4fbd604c307f4223&",
     embeds: [
       {
         title: `Nova Inscrição: ${fullName}`,
-        color: 2712319, // SPEED Blue color
+        color: 3092790, // #2f3136
         fields: [
           { name: "Nome Completo", value: fullName, inline: true },
           { name: "Idade", value: age, inline: true },
