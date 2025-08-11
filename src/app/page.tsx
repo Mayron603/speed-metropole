@@ -14,7 +14,7 @@ export default function Home() {
               Unidade S.P.E.E.D
             </h1>
             <p className="mt-4 text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto">
-              Special Police Emergency Enforcement Division: A unidade de resposta rápida da LSPD, especializada em perseguições de alto risco e apoio tático em Grande Metrópole.
+              Special Police Emergency Enforcement Division: A vanguarda da LSPD em perseguições táticas e interceptação de alvos de alto risco em Grande Metrópole.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/vacancies">
@@ -32,7 +32,7 @@ export default function Home() {
         <div className="container px-4 md:px-6">
           <h2 className="font-headline text-3xl font-bold tracking-tighter text-center sm:text-4xl md:text-5xl">Sobre a Unidade</h2>
           <p className="mx-auto max-w-3xl text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-center mt-4">
-            A SPEED é a unidade de apoio rápido da LSPD, focada em perseguições e situações que exigem agilidade e precisão. Nossos operadores são treinados para interceptações veiculares e resposta imediata.
+            A S.P.E.E.D. é a unidade de elite da LSPD especializada em acompanhamentos táticos. Nossos operadores são mestres na arte da perseguição, utilizando técnicas avançadas para neutralizar ameaças em movimento com precisão e segurança.
           </p>
           <div className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-1 md:gap-12 lg:max-w-5xl lg:grid-cols-3 mt-12">
             <Card className="shadow-lg hover:shadow-xl transition-shadow">
@@ -44,7 +44,7 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  Proteger a comunidade de Grande Metrópole através de intervenções rápidas em perseguições, garantindo a segurança de civis e a captura de suspeitos.
+                  Executar perseguições e interceptações com excelência tática, garantindo a captura de suspeitos e a proteção da comunidade com o mínimo de risco.
                 </p>
               </CardContent>
             </Card>
@@ -57,7 +57,7 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  Honra, Coragem, Compromisso e Integridade. Estes são os pilares que guiam cada uma de nossas ações, dentro e fora de serviço.
+                  Disciplina, Precisão, Antecipação e Integridade. Pilares que garantem a sincronia perfeita em nossas operações de alto risco.
                 </p>
               </CardContent>
             </Card>
@@ -70,7 +70,7 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  Ser a referência em policiamento tático, inovando em treinamento e tecnologia para garantir a paz e a segurança da cidade.
+                  Ser a unidade de referência em policiamento veicular tático, estabelecendo o padrão de doutrina e eficiência em todo o estado.
                 </p>
               </CardContent>
             </Card>
@@ -81,37 +81,37 @@ export default function Home() {
       <section id="divisions" className="w-full py-16 md:py-24 bg-secondary">
         <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6 lg:gap-10">
           <div className="space-y-3">
-            <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl/tight">Nossas Divisões</h2>
+            <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl/tight">Estrutura de Acompanhamento</h2>
             <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Estruturados para a máxima eficiência, cada divisão tem um papel crucial no sucesso de nossas operações.
+              Em uma perseguição, cada viatura tem um papel definido. A sincronia é a chave para o sucesso da operação.
             </p>
           </div>
-          <div className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid w-full grid-cols-1 md:grid-cols-3 gap-6">
             <Card>
               <CardContent className="p-6 flex flex-col items-center text-center">
                 <div className="mb-4 rounded-full bg-primary/10 p-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 text-primary"><path d="m15 18-6-6 6-6"/></svg>
+                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 text-primary"><path d="M12 5V2"/><path d="M12 12v-2"/><path d="m15 15-1-1"/><path d="m9 15 1-1"/><path d="M19 12h-2"/><path d="M7 12H5"/><path d="m18.364 18.364-.707-.707"/><path d="m6.343 18.364.707-.707"/><path d="m18.364 5.636-.707.707"/><path d="m6.343 5.636.707.707"/><circle cx="12" cy="12" r="5"/></svg>
                 </div>
-                <h3 className="font-headline text-xl font-bold">Oficiais de Campo</h3>
-                <p className="mt-2 text-sm text-muted-foreground">A linha de frente, responsáveis pela execução direta das operações táticas.</p>
+                <h3 className="font-headline text-xl font-bold">Viatura Primária</h3>
+                <p className="mt-2 text-sm text-muted-foreground">Mantém o contato visual com o alvo, modulando a direção e o comportamento do suspeito para o resto da equipe.</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 flex flex-col items-center text-center">
                 <div className="mb-4 rounded-full bg-primary/10 p-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 text-primary"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 text-primary"><path d="M17 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M7 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M12 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M21 8a2 2 0 1 0-4 0v4a2 2 0 1 0 4 0V8Z"/><path d="m5 18-3 3"/><path d="m19 6 2-2"/><path d="M12 22a8.2 8.2 0 0 1-4-15"/><path d="M12 2a8.2 8.2 0 0 1 4 15"/></svg>
                 </div>
-                <h3 className="font-headline text-xl font-bold">Operadores Táticos</h3>
-                <p className="mt-2 text-sm text-muted-foreground">Especialistas em armamento pesado, táticas de invasão e resgate de reféns.</p>
+                <h3 className="font-headline text-xl font-bold">Viatura Secundária</h3>
+                <p className="mt-2 text-sm text-muted-foreground">A viatura mais tática. Antecipa rotas de fuga, cobre ruas laterais e está pronta para assumir a ponta se a primária perder o visual.</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 flex flex-col items-center text-center">
                 <div className="mb-4 rounded-full bg-primary/10 p-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 text-primary"><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/><path d="M17 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M7 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M12 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 text-primary"><path d="M13 10l-4.5 4.5M13 10l4.5 4.5M13 10V3.5a2.5 2.5 0 1 1 5 0V10M3.5 22a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/><path d="M18.5 22a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/><path d="M13 10H3.5"/><path d="M13 10H21"/></svg>
                 </div>
-                <h3 className="font-headline text-xl font-bold">Suporte e Inteligência</h3>
-                <p className="mt-2 text-sm text-muted-foreground">A espinha dorsal da unidade, provendo dados, logística e suporte técnico.</p>
+                <h3 className="font-headline text-xl font-bold">Viatura Terciária</h3>
+                <p className="mt-2 text-sm text-muted-foreground">Fornece suporte, posicionando-se estrategicamente para formar roadblocks e cercos em rotas de fuga prováveis.</p>
               </CardContent>
             </Card>
           </div>
@@ -125,12 +125,12 @@ export default function Home() {
               <div className="inline-block rounded-lg bg-accent/10 px-3 py-1 text-sm text-accent font-semibold">Junte-se a Nós</div>
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Você tem o que é preciso?</h2>
               <p className="text-muted-foreground md:text-xl/relaxed">
-                Buscamos indivíduos excepcionais para se juntarem à elite da LSPD. Se você é dedicado, resiliente e busca desafios, seu lugar pode ser aqui.
+                Buscamos operadores com raciocínio rápido, controle emocional e habilidade de condução excepcional. Se você prospera sob pressão, seu lugar é na S.P.E.E.D.
               </p>
               <ul className="grid gap-2 text-muted-foreground">
-                <li className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-primary" /> Treinamento de ponta</li>
-                <li className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-primary" /> Equipamento de última geração</li>
-                <li className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-primary" /> Espírito de equipe inabalável</li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-primary" /> Doutrina de perseguição de ponta</li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-primary" /> Viaturas preparadas e de alta performance</li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-primary" /> Trabalho em equipe e comunicação tática</li>
               </ul>
               <Link href="/apply">
                 <Button size="lg" className="mt-4">Inicie sua Aplicação</Button>
@@ -141,9 +141,9 @@ export default function Home() {
                 src="https://placehold.co/600x400.png"
                 width={600}
                 height={400}
-                alt="SPEED Team"
+                alt="SPEED Team in action"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover"
-                data-ai-hint="police team swat"
+                data-ai-hint="police chase car"
               />
             </div>
           </div>
