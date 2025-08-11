@@ -33,8 +33,12 @@ export const authOptions: AuthOptions = {
 
           if (response.ok) {
             const memberData = await response.json();
+            const user = session.user as any;
             if (memberData.nick) {
-              (session.user as any).nickname = memberData.nick;
+              user.nickname = memberData.nick;
+            }
+            if (memberData.roles) {
+              user.roles = memberData.roles;
             }
           } else {
              console.error("Failed to fetch guild member info, Status:", response.status, "Body:", await response.text());

@@ -8,6 +8,21 @@ import { User, Mail, Hash, Shield } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+const roleMapping: { [key: string]: string } = {
+  "1394081883498745886": "SubComandante Speed",
+  "1383912650035036172": "Cabo",
+};
+
+function getUserRole(userRoles: string[] = []): string {
+  for (const roleId of userRoles) {
+    if (roleMapping[roleId]) {
+      return roleMapping[roleId];
+    }
+  }
+  return "Operador S.P.E.E.D.";
+}
+
+
 export default function DashboardPage() {
   const { data: session, status } = useSession();
 
@@ -43,7 +58,10 @@ export default function DashboardPage() {
   }
 
   const { user } = session;
-  const nickname = (user as any).nickname || user.name || "Operador";
+  const userWithDetails = user as any;
+  const nickname = userWithDetails.nickname || user.name || "Operador";
+  const userRole = getUserRole(userWithDetails.roles);
+
   let funcional = "Não definido";
   let fullName = nickname;
 
@@ -63,7 +81,7 @@ export default function DashboardPage() {
                 </Avatar>
                 <div className="space-y-1">
                     <CardTitle className="font-headline text-3xl">{fullName}</CardTitle>
-                    <CardDescription className="text-lg text-primary font-semibold">Operador S.P.E.E.D.</CardDescription>
+                    <CardDescription className="text-lg text-primary font-semibold">{userRole}</CardDescription>
                 </div>
             </CardHeader>
             <CardContent className="p-6 space-y-4">
