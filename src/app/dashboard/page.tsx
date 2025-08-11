@@ -8,17 +8,22 @@ import { User, Mail, Hash, Shield } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-const roleMapping: { [key: string]: string } = {
-  "1394081883498745886": "SubComandante Speed",
-  "1383912650035036172": "Cabo",
-};
+// The order of this array defines the role hierarchy, from highest to lowest rank.
+const roleHierarchy = [
+  { id: "1394081883498745886", name: "SubComandante Speed" },
+  { id: "1383912650035036172", name: "Cabo" },
+  // Add other roles here in descending order of importance
+];
 
 function getUserRole(userRoles: string[] = []): string {
-  for (const roleId of userRoles) {
-    if (roleMapping[roleId]) {
-      return roleMapping[roleId];
+  // Iterate through the defined hierarchy.
+  for (const role of roleHierarchy) {
+    // If the user has a role ID that is in our hierarchy, return that role name immediately.
+    if (userRoles.includes(role.id)) {
+      return role.name;
     }
   }
+  // If no matching role is found in the hierarchy, return the default role.
   return "Operador S.P.E.E.D.";
 }
 
