@@ -14,7 +14,7 @@ export default function EfetivoPage() {
       <div className="mt-12">
         <div className="aspect-w-16 aspect-h-9" style={{ height: '100vh' }}>
           <iframe
-            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT17X3zF_fM5zQmM7u-fUe3n1mQJ2UuA1u-7tEASJwr5Vh-8vK1tJ2H7m3y-k_VAh3gS-z1nZl2tP3o/pubhtml?gid=0&single=true&widget=true&headers=false"
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5i7M0z0Z3y-m5a1l7e8n0F6k9Z5e8c7x_B9jA8d4v3g2h1Y-j2l9k4s9X-u8n7a6v5z4C1m/pubhtml?gid=0&single=true&widget=true&headers=false"
             className="w-full h-full border-0 rounded-lg shadow-lg"
             allowFullScreen
           ></iframe>
