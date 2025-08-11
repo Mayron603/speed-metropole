@@ -32,10 +32,10 @@ export function ApplyForm() {
 
   useEffect(() => {
     if (state.message) {
-      if (state.errors) {
+      if (state.errors && Object.keys(state.errors).length > 0) {
         toast({
           title: "Erro na Aplicação",
-          description: state.message,
+          description: state.message || "Por favor, verifique os campos em vermelho.",
           variant: "destructive",
         });
       } else {
@@ -63,7 +63,7 @@ export function ApplyForm() {
               {state.errors?.fullName && <p className="text-sm text-destructive">{state.errors.fullName}</p>}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="age">Idade (Personagem)</Label>
+              <Label htmlFor="age">Idade (Real)</Label>
               <Input id="age" name="age" type="number" required />
               {state.errors?.age && <p className="text-sm text-destructive">{state.errors.age}</p>}
             </div>
@@ -75,9 +75,9 @@ export function ApplyForm() {
               {state.errors?.discord && <p className="text-sm text-destructive">{state.errors.discord}</p>}
             </div>
              <div className="space-y-2">
-              <Label htmlFor="steamHex">Steam HEX</Label>
-              <Input id="steamHex" name="steamHex" placeholder="Ex: 110000100000000" required />
-              {state.errors?.steamHex && <p className="text-sm text-destructive">{state.errors.steamHex}</p>}
+              <Label htmlFor="funcional">Funcional</Label>
+              <Input id="funcional" name="funcional" placeholder="Seu número funcional" required />
+              {state.errors?.funcional && <p className="text-sm text-destructive">{state.errors.funcional}</p>}
             </div>
           </div>
 

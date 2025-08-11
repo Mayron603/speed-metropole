@@ -8,7 +8,7 @@ const applyFormSchema = z.object({
   fullName: z.string().min(3, "Nome completo é obrigatório"),
   age: z.string().min(1, "Idade é obrigatória"),
   discord: z.string().min(3, "Discord é obrigatório"),
-  steamHex: z.string().min(10, "Steam HEX é obrigatório"),
+  funcional: z.string().min(1, "Funcional é obrigatório"),
   rpExperience: z.string().min(20, "Descreva sua experiência com mais detalhes"),
   motivation: z.string().min(20, "Descreva sua motivação com mais detalhes"),
   availability: z.string().min(10, "Descreva sua disponibilidade"),
@@ -21,7 +21,7 @@ interface ApplyFormState {
     fullName?: string[];
     age?: string[];
     discord?: string[];
-    steamHex?: string[];
+    funcional?: string[];
     rpExperience?: string[];
     motivation?: string[];
     availability?: string[];
@@ -37,7 +37,7 @@ export async function applyAction(
     fullName: formData.get("fullName"),
     age: formData.get("age"),
     discord: formData.get("discord"),
-    steamHex: formData.get("steamHex"),
+    funcional: formData.get("funcional"),
     rpExperience: formData.get("rpExperience"),
     motivation: formData.get("motivation"),
     availability: formData.get("availability"),
@@ -50,7 +50,7 @@ export async function applyAction(
     };
   }
 
-  const { fullName, age, discord, steamHex, rpExperience, motivation, availability } = validatedFields.data;
+  const { fullName, age, discord, funcional, rpExperience, motivation, availability } = validatedFields.data;
   const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
 
   if (!webhookUrl) {
@@ -69,7 +69,7 @@ export async function applyAction(
           { name: "Nome Completo", value: fullName, inline: true },
           { name: "Idade", value: age, inline: true },
           { name: "Discord", value: discord, inline: true },
-          { name: "Steam HEX", value: steamHex, inline: true },
+          { name: "Funcional", value: funcional, inline: true },
           { name: "Experiência com RP", value: rpExperience },
           { name: "Motivação", value: motivation },
           { name: "Disponibilidade", value: availability },
