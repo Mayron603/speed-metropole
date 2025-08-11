@@ -12,6 +12,7 @@ import { SpeedLogo } from "@/components/icons";
 const navItems = [
   { href: "/", label: "Início" },
   { href: "/hierarchy", label: "Hierarquia" },
+  { href: "/efetivo", label: "Efetivo" },
   { href: "/manuals", label: "Manuais" },
   { href: "/apply", label: "Inscreva-se" },
   { href: "/contact", label: "Contato" },
@@ -44,10 +45,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-           <Link href="/login">
-            <Button variant="ghost">Login</Button>
-          </Link>
-          <Link href="/dashboard">
+           <Link href="/dashboard">
             <Button variant="outline" className="hidden md:flex">
               Dashboard
             </Button>
