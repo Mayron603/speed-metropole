@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -18,7 +19,17 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter
+} from "@/components/ui/dialog"
 import { Skeleton } from "@/components/ui/skeleton";
+import { LoginButton } from "@/components/login-button";
 
 
 const navItems = [
@@ -39,9 +50,28 @@ function UserNav() {
 
   if (status === "unauthenticated") {
     return (
-      <Link href="/login">
-        <Button variant="outline">Login</Button>
-      </Link>
+       <Dialog>
+        <DialogTrigger asChild>
+          <Button variant="outline">Login</Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="font-headline text-3xl text-center">Acesso Restrito</DialogTitle>
+            <DialogDescription className="text-center pt-2">
+              O acesso ao painel de membros é exclusivo para operadores e é feito através do Discord.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="py-4">
+            <LoginButton />
+          </div>
+          <DialogFooter className="text-sm text-center w-full justify-center">
+             Ainda não é um membro?{" "}
+            <Link href="/apply" className="underline text-primary hover:text-primary/80">
+              Inscreva-se
+            </Link>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     );
   }
 
