@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Radio, MessageSquare, User } from "lucide-react";
+import { MessageSquare, Radio, User } from "lucide-react";
 
 export default function ContactPage() {
   return (
@@ -57,11 +57,12 @@ export default function ContactPage() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">
-              Para assuntos urgentes ou que necessitem da atenção direta do comando, entre em contato com o responsável.
+              Para assuntos urgentes ou que necessitem da atenção direta do comando ou subcomando.
             </p>
-             <p className="text-primary font-bold mt-2">
-              Discord: mayron.x
-            </p>
+             <div className="mt-4 space-y-2">
+              <p className="text-lg"><span className="font-semibold text-primary">Comando:</span> hobbsparkerghost</p>
+              <p className="text-lg"><span className="font-semibold text-primary">Subcomando:</span> mayron.x</p>
+            </div>
           </CardContent>
         </Card>
       </div>
