@@ -10,7 +10,7 @@ export default function Home() {
       <section className="relative w-full py-24 md:py-32 lg:py-40 bg-gradient-to-br from-background to-secondary/20">
         <div className="container px-4 md:px-6 text-center">
           <div className="max-w-3xl mx-auto">
-            <h1 className="font-headline text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-primary-foreground bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
+            <h1 className="font-headline text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
               Unidade S.P.E.E.D
             </h1>
             <p className="mt-4 text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto">
@@ -18,10 +18,10 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/apply">
-                <Button size="lg" className="bg-primary text-background hover:bg-primary/90">Inscreva-se</Button>
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 transition-transform hover:scale-105">Inscreva-se</Button>
               </Link>
               <Link href="/manuals">
-                <Button size="lg" variant="outline">Nossos Manuais</Button>
+                <Button size="lg" variant="outline" className="transition-transform hover:scale-105">Nossos Manuais</Button>
               </Link>
             </div>
           </div>
@@ -133,7 +133,7 @@ export default function Home() {
                 <li className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-primary" /> Trabalho em equipe e comunicação tática</li>
               </ul>
               <Link href="/apply">
-                <Button size="lg" className="mt-4 bg-primary text-background hover:bg-primary/90">Inicie sua Aplicação</Button>
+                <Button size="lg" className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90 transition-transform hover:scale-105">Inicie sua Aplicação</Button>
               </Link>
             </div>
             <div className="flex items-center justify-center">
