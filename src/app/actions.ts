@@ -89,7 +89,8 @@ export async function applyAction(
     });
 
     if (!response.ok) {
-      console.error(`Discord webhook failed with status: ${response.status}`);
+      const errorBody = await response.text();
+      console.error(`Discord webhook failed with status: ${response.status}`, errorBody);
       return { message: "Houve um erro ao enviar sua aplicação para o Discord." };
     }
   } catch (error) {
@@ -99,5 +100,57 @@ export async function applyAction(
 
   console.log("Nova Aplicação Recebida e enviada para o Discord:", validatedFields.data);
 
+  revalidatePath("/apply");
+
   return { message: "Aplicação enviada com sucesso! Entraremos em contato em breve." };
+}
+
+const generateContentFormSchema = z.object({
+  recentActivities: z.string().min(10, "Descreva com mais detalhes as atividades recentes."),
+});
+
+
+import { generateDynamicContent } from '@/ai/flows/generate-dynamic-content';
+
+interface GenerateContentState {
+  message?: string | null;
+  errors?: {
+    recentActivities?: string[];
+  };
+  data?: {
+    title: string;
+    content: string;
+  } | null;
+}
+
+export async function generateContentAction(
+  prevState: GenerateContentState,
+  formData: FormData
+): Promise<GenerateContentState> {
+  const validatedFields = generateContentFormSchema.safeParse({
+    recentActivities: formData.get("recentActivities"),
+  });
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      data: null,
+    };
+  }
+
+  try {
+    const result = await generateDynamicContent({ recentActivities: validatedFields.data.recentActivities });
+    return {
+      message: "Conteúdo gerado com sucesso!",
+      errors: {},
+      data: result,
+    }
+  } catch (error) {
+    console.error("AI content generation failed:", error);
+    return {
+      message: "Ocorreu um erro ao gerar o conteúdo com a IA.",
+      errors: {},
+      data: null,
+    }
+  }
 }
