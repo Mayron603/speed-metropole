@@ -46,7 +46,7 @@ export default function ManualsPage() {
                 <CardDescription>O uso de força letal é um recurso extremo, autorizado apenas em circunstâncias específicas.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                 <ul className="space-y-3 text-sm text-muted-foreground">
+                 <ul className="space-y-3 text-sm text-muted-foreground list-disc pl-5">
                     <li><strong>Disparos contra a Guarnição:</strong> Ameaça direta à vida dos oficiais. A resposta deve ser imediata e controlada.</li>
                     <li><strong>Situação de Resgate:</strong> Quando um suspeito em fuga abandona seu veículo e entra em outro, não envolvido inicialmente, para continuar a evasão (se o segundo veículo for importado).</li>
                     <li><strong>Autorização Superior:</strong> Um comando pode autorizar o Código 5 baseado em informações de inteligência que justifiquem a ação (ex: suspeito envolvido em tiroteio prévio).</li>
