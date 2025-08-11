@@ -23,6 +23,16 @@ export async function applyAction(
   prevState: ApplyFormState,
   formData: FormData
 ): Promise<ApplyFormState> {
+  const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
+
+  if (!webhookUrl) {
+    console.error("Discord webhook URL not configured.");
+    return { 
+      message: "Erro de servidor: A URL do webhook do Discord não está configurada nas variáveis de ambiente.",
+      success: false,
+    };
+  }
+  
   const validatedFields = applyFormSchema.safeParse({
     fullName: formData.get("fullName"),
     age: formData.get("age"),
@@ -43,16 +53,7 @@ export async function applyAction(
   }
 
   const { fullName, age, discord, funcional, rpExperience, motivation, availability } = validatedFields.data;
-  const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
-
-  if (!webhookUrl) {
-    console.error("Discord webhook URL not configured.");
-    return { 
-      message: "Erro de servidor: O webhook do Discord não está configurado.",
-      success: false,
-    };
-  }
-
+  
   const discordPayload = {
     username: "S.P.E.E.D. Recrutamento",
     avatar_url: "https://cdn.discordapp.com/attachments/1110324893750403072/1404506157560889455/logo.png?ex=689b6fca&is=689a1e4a&hm=930a829ab26ba321e1b60377981837d77d42659252cb712d4fbd604c307f4223&",
