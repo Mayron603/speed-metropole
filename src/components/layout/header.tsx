@@ -23,22 +23,22 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
+      <div className="container flex h-20 max-w-screen-2xl items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
           <div className="bg-card p-1 rounded-full border">
-            <Image src="/img/logo.png" alt="SPEED Logo" width={32} height={32} className="h-8 w-8 rounded-full" />
+            <Image src="/img/logo.png" alt="SPEED Logo" width={40} height={40} className="h-10 w-10 rounded-full" />
           </div>
           <span className="font-bold text-lg font-headline">S.P.E.E.D.</span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-2 text-sm font-medium">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "transition-colors hover:text-primary",
-                pathname === item.href ? "text-primary" : "text-muted-foreground"
+                "px-4 py-2 uppercase text-sm font-semibold rounded-md transition-colors hover:bg-accent/50 hover:text-accent-foreground",
+                pathname === item.href ? "bg-accent text-accent-foreground" : "text-muted-foreground"
               )}
             >
               {item.label}
