@@ -5,7 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import type { z } from "zod";
 import { useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { applyAction, applyFormSchema } from "@/app/actions";
+import { applyAction } from "@/app/actions";
+import { applyFormSchema } from "@/lib/schemas";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

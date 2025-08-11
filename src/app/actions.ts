@@ -1,19 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { z } from "zod";
-
-// Schema for Application Form
-export const applyFormSchema = z.object({
-  fullName: z.string().min(3, "Nome completo é obrigatório"),
-  age: z.string().min(1, "Idade é obrigatória"),
-  discord: z.string().min(3, "Discord é obrigatório"),
-  funcional: z.string().min(1, "Funcional é obrigatório"),
-  rpExperience: z.string().min(20, "Descreva sua experiência com mais detalhes (mínimo 20 caracteres)."),
-  motivation: z.string().min(20, "Descreva sua motivação com mais detalhes (mínimo 20 caracteres)."),
-  availability: z.string().min(10, "Descreva sua disponibilidade (mínimo 10 caracteres)."),
-  rulesAgreement: z.boolean().refine(val => val, { message: "Você deve concordar com as regras" }),
-});
+import { applyFormSchema } from "@/lib/schemas";
 
 interface ApplyFormState {
   message: string;
@@ -119,12 +107,13 @@ export async function applyAction(
   };
 }
 
+import { z } from "zod";
+import { generateDynamicContent } from '@/ai/flows/generate-dynamic-content';
+
 const generateContentFormSchema = z.object({
   recentActivities: z.string().min(10, "Descreva com mais detalhes as atividades recentes."),
 });
 
-
-import { generateDynamicContent } from '@/ai/flows/generate-dynamic-content';
 
 interface GenerateContentState {
   message?: string | null;
