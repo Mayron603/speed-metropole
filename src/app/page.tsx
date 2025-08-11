@@ -22,7 +22,7 @@ export default function Home() {
                 <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 transition-transform hover:scale-105 shadow-lg shadow-primary/20">Inscreva-se</Button>
               </Link>
               <Link href="/manuals">
-                <Button size="lg" variant="outline" className="transition-transform hover:scale-105 border-slate-400 text-white hover:bg-white hover:text-black">Nossos Manuais</Button>
+                <Button size="lg" variant="outline" className="transition-transform hover:scale-105 border-slate-300 text-slate-100 hover:bg-slate-100 hover:text-slate-900 bg-transparent">Nossos Manuais</Button>
               </Link>
             </div>
           </div>
