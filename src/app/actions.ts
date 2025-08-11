@@ -31,7 +31,7 @@ export async function applyAction(
     rpExperience: formData.get("rpExperience"),
     motivation: formData.get("motivation"),
     availability: formData.get("availability"),
-    rulesAgreement: formData.get("rulesAgreement") === "on",
+    rulesAgreement: formData.get("rulesAgreement") === "true",
   });
 
   if (!validatedFields.success) {
