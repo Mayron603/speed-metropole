@@ -1,7 +1,7 @@
 "use client";
 
 import { useFormState, useFormStatus } from "react-dom";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { applyAction } from "@/app/actions";
 
@@ -29,6 +29,7 @@ function SubmitButton() {
 export function ApplyForm() {
   const [state, formAction] = useFormState(applyAction, initialState);
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     if (state.message) {
@@ -43,7 +44,8 @@ export function ApplyForm() {
           title: "Sucesso!",
           description: state.message,
         });
-        // Ideally, you'd reset the form here.
+        // Reset the form on successful submission
+        formRef.current?.reset();
       }
     }
   }, [state, toast]);
@@ -54,7 +56,7 @@ export function ApplyForm() {
         <CardTitle className="font-headline text-3xl">Formulário de Inscrição</CardTitle>
         <CardDescription>Preencha os campos abaixo para iniciar seu processo seletivo na S.P.E.E.D.</CardDescription>
       </CardHeader>
-      <form action={formAction}>
+      <form ref={formRef} action={formAction}>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">

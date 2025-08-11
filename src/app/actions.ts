@@ -9,9 +9,9 @@ const applyFormSchema = z.object({
   age: z.string().min(1, "Idade é obrigatória"),
   discord: z.string().min(3, "Discord é obrigatório"),
   funcional: z.string().min(1, "Funcional é obrigatório"),
-  rpExperience: z.string().min(20, "Descreva sua experiência com mais detalhes"),
-  motivation: z.string().min(20, "Descreva sua motivação com mais detalhes"),
-  availability: z.string().min(10, "Descreva sua disponibilidade"),
+  rpExperience: z.string().min(20, "Descreva sua experiência com mais detalhes (mínimo 20 caracteres)."),
+  motivation: z.string().min(20, "Descreva sua motivação com mais detalhes (mínimo 20 caracteres)."),
+  availability: z.string().min(10, "Descreva sua disponibilidade (mínimo 10 caracteres)."),
   rulesAgreement: z.boolean().refine(val => val, { message: "Você deve concordar com as regras" }),
 });
 
@@ -46,6 +46,7 @@ export async function applyAction(
 
   if (!validatedFields.success) {
     return {
+      message: "Falha na validação. Por favor, verifique os campos.",
       errors: validatedFields.error.flatten().fieldErrors,
     };
   }
@@ -102,7 +103,7 @@ export async function applyAction(
 
   revalidatePath("/apply");
 
-  return { message: "Aplicação enviada com sucesso! Entraremos em contato em breve." };
+  return { message: "Aplicação enviada com sucesso! Entraremos em contato em breve.", errors: {} };
 }
 
 const generateContentFormSchema = z.object({
