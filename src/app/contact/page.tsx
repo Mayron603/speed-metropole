@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Radio, MessageSquare } from "lucide-react";
+import { Mail, Radio, MessageSquare, User } from "lucide-react";
 
 export default function ContactPage() {
   return (
@@ -25,7 +25,7 @@ export default function ContactPage() {
             <p className="text-muted-foreground">
               Para assuntos gerais, recrutamento e comunicação com a comunidade, nosso Discord é o canal principal.
             </p>
-            <a href="#" className="text-primary font-bold mt-2 inline-block hover:underline">
+            <a href="https://discord.gg/E8jpPacd4f" target="_blank" rel="noopener noreferrer" className="text-primary font-bold mt-2 inline-block hover:underline">
               Junte-se ao nosso Discord
             </a>
           </CardContent>
@@ -40,10 +40,10 @@ export default function ContactPage() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">
-              Para emergências e assuntos operacionais dentro da cidade, utilize o rádio da polícia na frequência designada para o comando da LSPD.
+              Para emergências e assuntos operacionais dentro da cidade, utilize o rádio na frequência 911.
             </p>
             <p className="text-primary font-bold mt-2">
-              Frequência: [INFORMAR FREQUÊNCIA]
+              Frequência: 911
             </p>
           </CardContent>
         </Card>
@@ -51,16 +51,16 @@ export default function ContactPage() {
         <Card className="md:col-span-2">
           <CardHeader className="flex flex-row items-center gap-4">
              <div className="p-3 bg-primary/10 rounded-md">
-              <Mail className="w-6 h-6 text-primary" />
+              <User className="w-6 h-6 text-primary" />
             </div>
-            <CardTitle className="font-headline">Comunicação Formal</CardTitle>
+            <CardTitle className="font-headline">Contato com o Comando</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">
-              Para denúncias, parcerias ou assuntos formais que exijam documentação, utilize o e-mail oficial do comando da LSPD, direcionando a mensagem para a S.P.E.E.D.
+              Para assuntos urgentes ou que necessitem da atenção direta do comando, entre em contato com o responsável.
             </p>
              <p className="text-primary font-bold mt-2">
-              E-mail: comando.lspd@grandemetropole.rp
+              Discord: mayron.x
             </p>
           </CardContent>
         </Card>
