@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { applyAction } from "@/app/actions";
 import { applyFormSchema } from "@/lib/schemas";
+import { useSession } from "next-auth/react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,6 +29,7 @@ import {
 type ApplyFormValues = z.infer<typeof applyFormSchema>;
 
 export function ApplyForm() {
+  const { data: session } = useSession();
   const { toast } = useToast();
   const form = useForm<ApplyFormValues>({
     resolver: zodResolver(applyFormSchema),
@@ -43,6 +45,26 @@ export function ApplyForm() {
       rulesAgreement: false,
     },
   });
+
+  useEffect(() => {
+    if (session?.user) {
+      const nickname = (session.user as any).nickname || "";
+      const discordUser = session.user.name ? `${session.user.name}` : "";
+      
+      form.setValue("discord", discordUser);
+      
+      const match = nickname.match(/^\[(\d+)\]\s*-\s*(.*)$/);
+      if (match) {
+        const funcional = match[1];
+        const fullName = match[2];
+        form.setValue("funcional", funcional);
+        form.setValue("fullName", fullName);
+      } else if (nickname) {
+        form.setValue("fullName", nickname);
+      }
+    }
+  }, [session, form]);
+  
 
   const { isSubmitting, isSubmitSuccessful } = form.formState;
 
@@ -133,7 +155,7 @@ export function ApplyForm() {
                   <FormItem>
                     <FormLabel>Seu Discord (user#1234)</FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input {...field} readOnly={!!session}/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
