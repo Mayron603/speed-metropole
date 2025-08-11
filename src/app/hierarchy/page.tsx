@@ -89,7 +89,7 @@ export default function HierarchyPage() {
                       </Avatar>
                       <div>
                         <p className="font-semibold">{member.name}</p>
-                        <p className="text-sm text-muted-foreground">ID: {member.id}</p>
+                        <p className="text-sm text-muted-foreground">Funcional: {member.id}</p>
                       </div>
                     </li>
                   ))}
