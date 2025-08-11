@@ -7,13 +7,14 @@ import { CheckCircle, Shield, Target, Users } from "lucide-react";
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <section className="relative w-full py-24 md:py-32 lg:py-40 bg-gradient-to-br from-background to-secondary">
-        <div className="container px-4 md:px-6 text-center">
+      <section className="relative w-full py-24 md:py-32 lg:py-40 bg-cover bg-center bg-no-repeat" style={{backgroundImage: "url('https://placehold.co/1920x1080.png')"}}>
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="container relative px-4 md:px-6 text-center">
           <div className="max-w-3xl mx-auto">
-            <h1 className="font-headline text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+            <h1 className="font-headline text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground/80">
               Unidade S.P.E.E.D
             </h1>
-            <p className="mt-4 text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="mt-4 text-lg md:text-xl lg:text-2xl text-slate-300 max-w-2xl mx-auto">
               Special Police Emergency Enforcement Division: A vanguarda da LSPD em perseguições táticas e interceptação de alvos de alto risco em Grande Metrópole.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
@@ -21,7 +22,7 @@ export default function Home() {
                 <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 transition-transform hover:scale-105 shadow-lg shadow-primary/20">Inscreva-se</Button>
               </Link>
               <Link href="/manuals">
-                <Button size="lg" variant="outline" className="transition-transform hover:scale-105">Nossos Manuais</Button>
+                <Button size="lg" variant="outline" className="transition-transform hover:scale-105 border-slate-400 text-white hover:bg-white hover:text-black">Nossos Manuais</Button>
               </Link>
             </div>
           </div>
