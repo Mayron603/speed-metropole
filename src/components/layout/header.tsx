@@ -23,12 +23,12 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-20 max-w-screen-2xl items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
+      <div className="container flex h-24 max-w-screen-2xl items-center justify-between">
+        <Link href="/" className="flex items-center gap-4">
           <div className="bg-card p-1 rounded-full border">
-            <Image src="/img/logo.png" alt="SPEED Logo" width={40} height={40} className="h-10 w-10 rounded-full" />
+            <Image src="/img/logo.png" alt="SPEED Logo" width={64} height={64} className="h-16 w-16 rounded-full" />
           </div>
-          <span className="font-bold text-lg font-headline">S.P.E.E.D.</span>
+          <span className="font-bold text-2xl font-headline">S.P.E.E.D.</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-2 text-sm font-medium">
@@ -37,7 +37,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                "px-4 py-2 uppercase text-sm font-semibold rounded-md transition-colors hover:bg-accent/50 hover:text-accent-foreground",
+                "px-4 py-2 uppercase text-sm font-semibold rounded-md transition-colors border-2 border-transparent hover:border-border hover:bg-accent/50 hover:text-accent-foreground",
                 pathname === item.href ? "bg-accent text-accent-foreground" : "text-muted-foreground"
               )}
             >
