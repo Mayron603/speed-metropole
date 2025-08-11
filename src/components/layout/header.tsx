@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, Shield } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { SpeedLogo } from "@/components/icons";
 
 const navItems = [
   { href: "/", label: "Início" },
@@ -25,8 +25,8 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <Shield className="h-6 w-6 text-primary" />
-          <SpeedLogo className="h-5 w-auto" />
+          <Image src="/img/logo.png" alt="SPEED Logo" width={40} height={40} className="h-10 w-auto" />
+          <span className="font-bold text-lg font-headline">S.P.E.E.D.</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
@@ -45,12 +45,6 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-           <Link href="/dashboard">
-            <Button variant="outline" className="hidden md:flex">
-              Dashboard
-            </Button>
-          </Link>
-
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="md:hidden">
@@ -64,8 +58,8 @@ export function Header() {
                   href="/"
                   className="flex items-center gap-2 text-lg font-semibold"
                 >
-                  <Shield className="h-6 w-6 text-primary" />
-                  <span className="font-bold">SPEED</span>
+                  <Image src="/img/logo.png" alt="SPEED Logo" width={32} height={32} />
+                  <span className="font-bold">S.P.E.E.D.</span>
                 </Link>
                 {navItems.map((item) => (
                   <Link
@@ -79,11 +73,6 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
-                <Link href="/dashboard">
-                  <Button variant="outline" className="w-full">
-                    Dashboard
-                  </Button>
-                </Link>
               </nav>
             </SheetContent>
           </Sheet>
