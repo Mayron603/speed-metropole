@@ -47,8 +47,8 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-           <Link href="/dashboard">
-              <Button variant="outline" size="sm">Painel do Membro</Button>
+           <Link href="/login">
+              <Button variant="outline">Painel do Membro</Button>
             </Link>
           <Sheet>
             <SheetTrigger asChild>
@@ -80,7 +80,7 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
-                 <Link href="/dashboard" className="text-muted-foreground transition-colors hover:text-primary">
+                 <Link href="/login" className="text-muted-foreground transition-colors hover:text-primary">
                     Painel do Membro
                  </Link>
               </nav>
