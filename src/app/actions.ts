@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
 // Schema for Application Form
-const applyFormSchema = z.object({
+export const applyFormSchema = z.object({
   fullName: z.string().min(3, "Nome completo é obrigatório"),
   age: z.string().min(1, "Idade é obrigatória"),
   discord: z.string().min(3, "Discord é obrigatório"),
@@ -16,7 +16,7 @@ const applyFormSchema = z.object({
 });
 
 interface ApplyFormState {
-  message?: string | null;
+  message: string;
   errors?: {
     fullName?: string[];
     age?: string[];
@@ -26,7 +26,9 @@ interface ApplyFormState {
     motivation?: string[];
     availability?: string[];
     rulesAgreement?: string[];
+    _form?: string[];
   };
+  success: boolean;
 }
 
 export async function applyAction(
@@ -48,6 +50,7 @@ export async function applyAction(
     return {
       message: "Falha na validação. Por favor, verifique os campos.",
       errors: validatedFields.error.flatten().fieldErrors,
+      success: false,
     };
   }
 
@@ -56,7 +59,10 @@ export async function applyAction(
 
   if (!webhookUrl) {
     console.error("Discord webhook URL not configured.");
-    return { message: "Erro de servidor: O webhook do Discord não está configurado." };
+    return { 
+      message: "Erro de servidor: O webhook do Discord não está configurado.",
+      success: false,
+    };
   }
 
   const discordPayload = {
@@ -92,18 +98,25 @@ export async function applyAction(
     if (!response.ok) {
       const errorBody = await response.text();
       console.error(`Discord webhook failed with status: ${response.status}`, errorBody);
-      return { message: "Houve um erro ao enviar sua aplicação para o Discord." };
+      return { 
+        message: "Houve um erro ao enviar sua aplicação para o Discord.",
+        success: false,
+      };
     }
   } catch (error) {
     console.error("Failed to send application to Discord:", error);
-    return { message: "Houve um erro de conexão ao enviar sua aplicação." };
+    return { 
+      message: "Houve um erro de conexão ao enviar sua aplicação.",
+      success: false,
+    };
   }
-
-  console.log("Nova Aplicação Recebida e enviada para o Discord:", validatedFields.data);
 
   revalidatePath("/apply");
 
-  return { message: "Aplicação enviada com sucesso! Entraremos em contato em breve.", errors: {} };
+  return { 
+    message: "Aplicação enviada com sucesso! Entraremos em contato em breve.",
+    success: true,
+  };
 }
 
 const generateContentFormSchema = z.object({
