@@ -17,8 +17,8 @@ export default function Home() {
               Special Police Emergency Enforcement Division: A vanguarda da LSPD em perseguições táticas e interceptação de alvos de alto risco em Grande Metrópole.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/vacancies">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">Ver Vagas Abertas</Button>
+              <Link href="/apply">
+                <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">Inscreva-se</Button>
               </Link>
               <Link href="/manuals">
                 <Button size="lg" variant="outline">Nossos Manuais</Button>
