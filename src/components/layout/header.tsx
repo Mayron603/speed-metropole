@@ -40,7 +40,7 @@ function UserNav() {
   if (status === "unauthenticated") {
     return (
       <Link href="/login">
-        <Button variant="outline">Painel do Membro</Button>
+        <Button variant="outline">Login</Button>
       </Link>
     );
   }
