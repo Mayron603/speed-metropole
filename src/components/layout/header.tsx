@@ -25,7 +25,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
-          <div className="bg-card p-1 rounded-full">
+          <div className="bg-card p-1 rounded-full border">
             <Image src="/img/logo.png" alt="SPEED Logo" width={32} height={32} className="h-8 w-8 rounded-full" />
           </div>
           <span className="font-bold text-lg font-headline">S.P.E.E.D.</span>
@@ -47,6 +47,9 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+           <Link href="/dashboard">
+              <Button variant="outline" size="sm">Painel do Membro</Button>
+            </Link>
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="md:hidden">
@@ -60,7 +63,7 @@ export function Header() {
                   href="/"
                   className="flex items-center gap-3 text-lg font-semibold"
                 >
-                  <div className="bg-card p-1 rounded-full">
+                  <div className="bg-card p-1 rounded-full border">
                     <Image src="/img/logo.png" alt="SPEED Logo" width={32} height={32} className="h-8 w-8 rounded-full" />
                   </div>
                   <span className="font-bold">S.P.E.E.D.</span>
@@ -77,6 +80,9 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
+                 <Link href="/dashboard" className="text-muted-foreground transition-colors hover:text-primary">
+                    Painel do Membro
+                 </Link>
               </nav>
             </SheetContent>
           </Sheet>

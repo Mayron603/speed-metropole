@@ -71,8 +71,8 @@ export default function HierarchyPage() {
 
       <div className="mt-12 space-y-8">
         {hierarchy.map((level) => (
-          <Card key={level.rank} className="overflow-hidden">
-            <CardHeader className="flex flex-row items-center gap-4 bg-muted/50 p-4">
+          <Card key={level.rank} className="overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+            <CardHeader className="flex flex-row items-center gap-4 bg-muted/50 p-4 border-b">
               <div className="p-2 bg-primary/10 rounded-md">
                 {level.icon}
               </div>
@@ -83,7 +83,7 @@ export default function HierarchyPage() {
                 <ul className="space-y-4">
                   {level.members.map((member) => (
                     <li key={member.id} className="flex items-center gap-4">
-                      <Avatar>
+                      <Avatar className="border-2 border-primary/50">
                         <AvatarImage src={`https://placehold.co/40x40.png?text=${member.name.charAt(0)}`} />
                         <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
                       </Avatar>
