@@ -181,7 +181,7 @@ export function ApplyForm() {
               name="rpExperience"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Experiência com Roleplay</FormLabel>
+                  <FormLabel>1. Experiência com Roleplay</FormLabel>
                   <FormControl>
                     <Textarea placeholder="Descreva suas experiências anteriores em servidores de RP, tempo de jogo, facções que participou, etc." {...field} />
                   </FormControl>
@@ -196,7 +196,7 @@ export function ApplyForm() {
               name="motivation"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Por que você quer entrar na S.P.E.E.D?</FormLabel>
+                  <FormLabel>2. Por que você quer entrar na S.P.E.E.D?</FormLabel>
                   <FormControl>
                     <Textarea placeholder="O que te motiva a se juntar a uma unidade de elite? Quais são seus objetivos?" {...field} />
                   </FormControl>
@@ -211,7 +211,7 @@ export function ApplyForm() {
               name="availability"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Disponibilidade de Horário</FormLabel>
+                  <FormLabel>3. Disponibilidade de Horário</FormLabel>
                   <FormControl>
                     <Textarea placeholder="Informe os dias e horários que você costuma estar disponível para jogar." {...field} />
                   </FormControl>
