@@ -121,14 +121,14 @@ export default function Home() {
 
       <section id="join" className="w-full py-16 md:py-24">
         <div className="container">
-          <div className="grid gap-10 px-10 md:gap-16 lg:grid-cols-2">
-            <div className="space-y-4">
+          <div className="grid gap-10 px-10 md:gap-16">
+            <div className="space-y-4 text-center">
               <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary font-semibold">Junte-se a Nós</div>
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Você tem o que é preciso?</h2>
-              <p className="text-muted-foreground md:text-xl/relaxed">
+              <p className="text-muted-foreground md:text-xl/relaxed max-w-2xl mx-auto">
                 Buscamos operadores com raciocínio rápido, controle emocional e habilidade de condução excepcional. Se você prospera sob pressão, seu lugar é na S.P.E.E.D.
               </p>
-              <ul className="grid gap-2 text-muted-foreground">
+              <ul className="grid gap-2 text-muted-foreground max-w-md mx-auto text-left">
                 <li className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-primary" /> Doutrina de perseguição de ponta</li>
                 <li className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-primary" /> Viaturas preparadas e de alta performance</li>
                 <li className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-primary" /> Trabalho em equipe e comunicação tática</li>
@@ -136,16 +136,6 @@ export default function Home() {
               <Link href="/apply">
                 <Button size="lg" className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90 transition-transform hover:scale-105 shadow-lg shadow-primary/20">Inicie sua Aplicação</Button>
               </Link>
-            </div>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/img/speed2.png"
-                width={600}
-                height={400}
-                alt="Operadores da S.P.E.E.D. em formação"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover"
-                data-ai-hint="police cars"
-              />
             </div>
           </div>
         </div>
