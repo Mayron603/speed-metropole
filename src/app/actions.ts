@@ -2,6 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 import { applyFormSchema } from "@/lib/schemas";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 interface ApplyFormState {
   message: string;
@@ -54,21 +56,28 @@ export async function applyAction(
 
   const { fullName, age, discord, funcional, rpExperience, motivation, availability } = validatedFields.data;
   
+  const session = await getServerSession(authOptions);
+  const avatarURL = session?.user?.image;
+
   const discordPayload = {
     username: "S.P.E.E.D. Recrutamento",
-    avatar_url: "https://cdn.discordapp.com/attachments/1110324893750403072/1404506157560889455/logo.png?ex=689b6fca&is=689a1e4a&hm=930a829ab26ba321e1b60377981837d77d42659252cb712d4fbd604c307f4223&",
+    avatar_url: "https://cdn.discordapp.com/attachments/1110324893750403072/1404506157560889455/logo.png",
     embeds: [
       {
-        title: `📝 Nova Inscrição: ${fullName}`,
-        color: 3092790, // #2f3136
+        title: `Nova Inscrição - ${fullName}`,
+        thumbnail: {
+          url: avatarURL || "https://cdn.discordapp.com/embed/avatars/0.png", // Foto do candidato
+        },
+        color: 0x2f3136,
         fields: [
-          { name: "👤 Nome Completo", value: fullName, inline: true },
-          { name: "🎂 Idade", value: age, inline: true },
-          { name: "🆔 Funcional", value: funcional, inline: true },
-          { name: "🤖 Discord", value: discord, inline: true },
-          { name: "🎭 Experiência com RP", value: rpExperience },
-          { name: "🔥 Motivação", value: motivation },
-          { name: "⏰ Disponibilidade", value: availability },
+          { name: "Nome", value: fullName, inline: true },
+          { name: "Idade", value: `${age} anos`, inline: true },
+          { name: "Funcional", value: funcional, inline: true },
+          { name: "Discord", value: discord, inline: true },
+  
+          { name: "1. Experiência com RP", value: `\`\`\`${rpExperience || "Não informado"}\`\`\`` },
+          { name: "2. Motivação", value: `\`\`\`${motivation || "Não informado"}\`\`\`` },
+          { name: "3. Disponibilidade", value: `\`\`\`${availability || "Não informado"}\`\`\`` },
         ],
         footer: {
           text: `Inscrição recebida em: ${new Date().toLocaleString("pt-BR")}`,
@@ -76,6 +85,7 @@ export async function applyAction(
       },
     ],
   };
+  
 
   try {
     const response = await fetch(webhookUrl, {
