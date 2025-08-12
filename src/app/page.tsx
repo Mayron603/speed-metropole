@@ -7,7 +7,7 @@ import { CheckCircle, Shield, Target, Users } from "lucide-react";
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <section className="relative w-full py-24 md:py-32 lg:py-40 bg-cover bg-center bg-no-repeat" style={{backgroundImage: "url('/img/speed2.png')"}}>
+      <section className="relative w-full py-24 md:py-32 lg:py-40 bg-cover bg-center bg-no-repeat" style={{backgroundImage: "url('/img/speed3.png')"}}>
         <div className="absolute inset-0 bg-black/60" />
         <div className="container relative px-4 md:px-6 text-center">
           <div className="max-w-3xl mx-auto">
@@ -126,7 +126,7 @@ export default function Home() {
               alt="Equipe da SPEED em ação"
               className="mx-auto aspect-video overflow-hidden rounded-xl object-cover"
               height="400"
-              src="/img/speed2.png"
+              src="/img/speed3.png"
               width="600"
               data-ai-hint="police team action"
             />
