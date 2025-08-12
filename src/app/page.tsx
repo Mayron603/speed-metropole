@@ -142,7 +142,7 @@ export default function Home() {
                 src="/img/speed2.png"
                 width={600}
                 height={400}
-                alt="SPEED Team in action"
+                alt="Equipe da SPEED em ação"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover"
               />
             </div>
