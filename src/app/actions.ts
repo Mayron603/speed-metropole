@@ -81,12 +81,12 @@ export async function applyAction(
           { name: "Funcional", value: funcional, inline: true },
           { name: "Discord", value: discord, inline: true },
   
-          { name: "1. Experiência com RP", value: `\`\`\`${question1 || "Não informado"}\`\`\`` },
-          { name: "2. Motivação", value: `\`\`\`${question2 || "Não informado"}\`\`\`` },
-          { name: "3. Disponibilidade", value: `\`\`\`${question3 || "Não informado"}\`\`\`` },
-          { name: "4. Qual a função da viatura SECUNDÁRIA em um acompanhamento?", value: `\`\`\`${question4 || "Não informado"}\`\`\`` },
-          { name: "5. O que um operador deve fazer ao ouvir 'Código 5' no rádio?", value: `\`\`\`${question5 || "Não informado"}\`\`\`` },
-          { name: "6. Para que serve a manobra 'Box Tático' e quando deve ser utilizada?", value: `\`\`\`${question6 || "Não informado"}\`\`\`` },
+          { name: "1. Descreva suas experiências anteriores em servidores de RP, tempo de jogo, facções que participou, etc.", value: `\`\`\`${question1 || "Não informado"}\`\`\`` },
+          { name: "2. O que te motiva a se juntar a uma unidade de elite como a S.P.E.E.D? Quais são seus objetivos?", value: `\`\`\`${question2 || "Não informado"}\`\`\`` },
+          { name: "3. Informe os dias e horários que você costuma estar disponível para jogar.", value: `\`\`\`${question3 || "Não informado"}\`\`\`` },
+          { name: "4. Qual a função da viatura SECUNDÁRIA em um acompanhamento tático, segundo nossa doutrina?", value: `\`\`\`${question4 || "Não informado"}\`\`\`` },
+          { name: "5. Ao ouvir 'Código 5' no rádio da polícia, qual ação imediata um operador deve tomar?", value: `\`\`\`${question5 || "Não informado"}\`\`\`` },
+          { name: "6. Explique para que serve a manobra 'Box Tático' e em que tipo de situação ela é mais eficaz.", value: `\`\`\`${question6 || "Não informado"}\`\`\`` },
         ],
         footer: {
           text: `Inscrição recebida em: ${new Date().toLocaleString("pt-BR")}`,
