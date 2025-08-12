@@ -39,9 +39,12 @@ export function ApplyForm() {
       age: "",
       discord: "",
       funcional: "",
-      rpExperience: "",
-      motivation: "",
-      availability: "",
+      question1: "",
+      question2: "",
+      question3: "",
+      question4: "",
+      question5: "",
+      question6: "",
       rulesAgreement: false,
     },
   });
@@ -119,113 +122,161 @@ export function ApplyForm() {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <CardContent className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <FormField
-                control={form.control}
-                name="fullName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Nome Completo (Personagem)</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="age"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Idade (Real)</FormLabel>
-                    <FormControl>
-                      <Input type="number" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+            <div className="space-y-4 border-b pb-6">
+                <h3 className="font-headline text-xl">Informações Básicas</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <FormField
+                    control={form.control}
+                    name="fullName"
+                    render={({ field }) => (
+                    <FormItem>
+                        <FormLabel>Nome Completo (Personagem)</FormLabel>
+                        <FormControl>
+                        <Input {...field} />
+                        </FormControl>
+                        <FormMessage />
+                    </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="age"
+                    render={({ field }) => (
+                    <FormItem>
+                        <FormLabel>Idade (Real)</FormLabel>
+                        <FormControl>
+                        <Input type="number" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                    </FormItem>
+                    )}
+                />
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <FormField
+                    control={form.control}
+                    name="discord"
+                    render={({ field }) => (
+                    <FormItem>
+                        <FormLabel>Seu Discord (user#1234)</FormLabel>
+                        <FormControl>
+                        <Input {...field} readOnly={!!session}/>
+                        </FormControl>
+                        <FormMessage />
+                    </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="funcional"
+                    render={({ field }) => (
+                    <FormItem>
+                        <FormLabel>Funcional</FormLabel>
+                        <FormControl>
+                        <Input placeholder="Seu número funcional" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                    </FormItem>
+                    )}
+                />
+                </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <FormField
+
+            <div className="space-y-4 pt-4">
+                <h3 className="font-headline text-xl">Questionário</h3>
+                <FormField
                 control={form.control}
-                name="discord"
+                name="question1"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Seu Discord (user#1234)</FormLabel>
+                    <FormItem>
+                    <FormLabel>1. Descreva suas experiências anteriores em servidores de RP, tempo de jogo, facções que participou, etc.</FormLabel>
                     <FormControl>
-                      <Input {...field} readOnly={!!session}/>
+                        <Textarea {...field} />
                     </FormControl>
+                    <FormDescription>Mínimo 20 caracteres.</FormDescription>
                     <FormMessage />
-                  </FormItem>
+                    </FormItem>
                 )}
-              />
-              <FormField
+                />
+
+                <FormField
                 control={form.control}
-                name="funcional"
+                name="question2"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Funcional</FormLabel>
+                    <FormItem>
+                    <FormLabel>2. O que te motiva a se juntar a uma unidade de elite como a S.P.E.E.D? Quais são seus objetivos?</FormLabel>
                     <FormControl>
-                      <Input placeholder="Seu número funcional" {...field} />
+                        <Textarea {...field} />
                     </FormControl>
+                    <FormDescription>Mínimo 20 caracteres.</FormDescription>
                     <FormMessage />
-                  </FormItem>
+                    </FormItem>
                 )}
-              />
+                />
+
+                <FormField
+                control={form.control}
+                name="question3"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>3. Informe os dias e horários que você costuma estar disponível para jogar.</FormLabel>
+                    <FormControl>
+                        <Textarea {...field} />
+                    </FormControl>
+                    <FormDescription>Mínimo 10 caracteres.</FormDescription>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                 <FormField
+                control={form.control}
+                name="question4"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>4. Qual a função da viatura SECUNDÁRIA em um acompanhamento tático, segundo nossa doutrina?</FormLabel>
+                    <FormControl>
+                        <Textarea {...field} />
+                    </FormControl>
+                     <FormDescription>Consulte os manuais para responder.</FormDescription>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                 <FormField
+                control={form.control}
+                name="question5"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>5. Ao ouvir "Código 5" no rádio da polícia, qual ação imediata um operador deve tomar?</FormLabel>
+                    <FormControl>
+                        <Textarea {...field} />
+                    </FormControl>
+                     <FormDescription>Consulte os manuais para responder.</FormDescription>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                 <FormField
+                control={form.control}
+                name="question6"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>6. Explique para que serve a manobra "Box Tático" e em que tipo de situação ela é mais eficaz.</FormLabel>
+                    <FormControl>
+                        <Textarea {...field} />
+                    </FormControl>
+                    <FormDescription>Consulte os manuais para responder.</FormDescription>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
             </div>
-
-            <FormField
-              control={form.control}
-              name="rpExperience"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>1. Experiência com RP</FormLabel>
-                  <FormControl>
-                    <Textarea placeholder="Descreva suas experiências anteriores em servidores de RP, tempo de jogo, facções que participou, etc." {...field} />
-                  </FormControl>
-                  <FormDescription>Mínimo 20 caracteres.</FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="motivation"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>2. Motivação</FormLabel>
-                  <FormControl>
-                    <Textarea placeholder="O que te motiva a se juntar a uma unidade de elite? Quais são seus objetivos?" {...field} />
-                  </FormControl>
-                   <FormDescription>Mínimo 20 caracteres.</FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="availability"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>3. Disponibilidade</FormLabel>
-                  <FormControl>
-                    <Textarea placeholder="Informe os dias e horários que você costuma estar disponível para jogar." {...field} />
-                  </FormControl>
-                   <FormDescription>Mínimo 10 caracteres.</FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
+            
             <FormField
               control={form.control}
               name="rulesAgreement"
               render={({ field }) => (
-                <FormItem className="flex items-start space-x-3 space-y-0">
+                <FormItem className="flex items-start space-x-3 space-y-0 pt-4">
                    <FormControl>
                      <Checkbox
                         checked={field.value}
