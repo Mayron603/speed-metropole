@@ -17,7 +17,6 @@ interface ApplyFormState {
     question3?: string[];
     question4?: string[];
     question5?: string[];
-    question6?: string[];
     rulesAgreement?: string[];
     _form?: string[];
   };
@@ -48,7 +47,6 @@ export async function applyAction(
     question3: formData.get("question3"),
     question4: formData.get("question4"),
     question5: formData.get("question5"),
-    question6: formData.get("question6"),
     rulesAgreement: formData.get("rulesAgreement") === "true",
   });
 
@@ -60,7 +58,7 @@ export async function applyAction(
     };
   }
 
-  const { fullName, age, discord, funcional, question1, question2, question3, question4, question5, question6 } = validatedFields.data;
+  const { fullName, age, discord, funcional, question1, question2, question3, question4, question5 } = validatedFields.data;
   
   const session = await getServerSession(authOptions);
   const avatarURL = session?.user?.image;
@@ -81,12 +79,11 @@ export async function applyAction(
           { name: "Funcional", value: funcional, inline: true },
           { name: "Discord", value: discord, inline: true },
   
-          { name: "1. Descreva suas experiências anteriores em servidores de RP, tempo de jogo, facções que participou, etc.", value: `\`\`\`${question1 || "Não informado"}\`\`\`` },
-          { name: "2. O que te motiva a se juntar a uma unidade de elite como a S.P.E.E.D? Quais são seus objetivos?", value: `\`\`\`${question2 || "Não informado"}\`\`\`` },
-          { name: "3. Informe os dias e horários que você costuma estar disponível para jogar.", value: `\`\`\`${question3 || "Não informado"}\`\`\`` },
-          { name: "4. Qual a função da viatura SECUNDÁRIA em um acompanhamento tático, segundo nossa doutrina?", value: `\`\`\`${question4 || "Não informado"}\`\`\`` },
-          { name: "5. Ao ouvir 'Código 5' no rádio da polícia, qual ação imediata um operador deve tomar?", value: `\`\`\`${question5 || "Não informado"}\`\`\`` },
-          { name: "6. Explique para que serve a manobra 'Box Tático' e em que tipo de situação ela é mais eficaz.", value: `\`\`\`${question6 || "Não informado"}\`\`\`` },
+          { name: "1. O que te motiva a se juntar a uma unidade de elite como a S.P.E.E.D? Quais são seus objetivos?", value: `\`\`\`${question1 || "Não informado"}\`\`\`` },
+          { name: "2. Informe os dias e horários que você costuma estar disponível para jogar.", value: `\`\`\`${question2 || "Não informado"}\`\`\`` },
+          { name: "3. Qual a função da viatura SECUNDÁRIA em um acompanhamento tático, segundo nossa doutrina?", value: `\`\`\`${question3 || "Não informado"}\`\`\`` },
+          { name: "4. Ao ouvir 'Código 5' no rádio da polícia, qual ação imediata um operador deve tomar?", value: `\`\`\`${question4 || "Não informado"}\`\`\`` },
+          { name: "5. Explique para que serve a manobra 'Box Tático' e em que tipo de situação ela é mais eficaz.", value: `\`\`\`${question5 || "Não informado"}\`\`\`` },
         ],
         footer: {
           text: `Inscrição recebida em: ${new Date().toLocaleString("pt-BR")}`,

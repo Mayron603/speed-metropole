@@ -44,7 +44,6 @@ export function ApplyForm() {
       question3: "",
       question4: "",
       question5: "",
-      question6: "",
       rulesAgreement: false,
     },
   });
@@ -189,7 +188,7 @@ export function ApplyForm() {
                 name="question1"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>1. Descreva suas experiências anteriores em servidores de RP, tempo de jogo, facções que participou, etc.</FormLabel>
+                    <FormLabel>1. O que te motiva a se juntar a uma unidade de elite como a S.P.E.E.D? Quais são seus objetivos?</FormLabel>
                     <FormControl>
                         <Textarea {...field} />
                     </FormControl>
@@ -204,22 +203,7 @@ export function ApplyForm() {
                 name="question2"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>2. O que te motiva a se juntar a uma unidade de elite como a S.P.E.E.D? Quais são seus objetivos?</FormLabel>
-                    <FormControl>
-                        <Textarea {...field} />
-                    </FormControl>
-                    <FormDescription>Mínimo 20 caracteres.</FormDescription>
-                    <FormMessage />
-                    </FormItem>
-                )}
-                />
-
-                <FormField
-                control={form.control}
-                name="question3"
-                render={({ field }) => (
-                    <FormItem>
-                    <FormLabel>3. Informe os dias e horários que você costuma estar disponível para jogar.</FormLabel>
+                    <FormLabel>2. Informe os dias e horários que você costuma estar disponível para jogar.</FormLabel>
                     <FormControl>
                         <Textarea {...field} />
                     </FormControl>
@@ -228,12 +212,28 @@ export function ApplyForm() {
                     </FormItem>
                 )}
                 />
+
+                 <FormField
+                control={form.control}
+                name="question3"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>3. Qual a função da viatura SECUNDÁRIA em um acompanhamento tático, segundo nossa doutrina?</FormLabel>
+                    <FormControl>
+                        <Textarea {...field} />
+                    </FormControl>
+                     <FormDescription>Consulte os manuais para responder.</FormDescription>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+
                  <FormField
                 control={form.control}
                 name="question4"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>4. Qual a função da viatura SECUNDÁRIA em um acompanhamento tático, segundo nossa doutrina?</FormLabel>
+                    <FormLabel>4. Ao ouvir "Código 5" no rádio da polícia, qual ação imediata um operador deve tomar?</FormLabel>
                     <FormControl>
                         <Textarea {...field} />
                     </FormControl>
@@ -242,26 +242,13 @@ export function ApplyForm() {
                     </FormItem>
                 )}
                 />
+
                  <FormField
                 control={form.control}
                 name="question5"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>5. Ao ouvir "Código 5" no rádio da polícia, qual ação imediata um operador deve tomar?</FormLabel>
-                    <FormControl>
-                        <Textarea {...field} />
-                    </FormControl>
-                     <FormDescription>Consulte os manuais para responder.</FormDescription>
-                    <FormMessage />
-                    </FormItem>
-                )}
-                />
-                 <FormField
-                control={form.control}
-                name="question6"
-                render={({ field }) => (
-                    <FormItem>
-                    <FormLabel>6. Explique para que serve a manobra "Box Tático" e em que tipo de situação ela é mais eficaz.</FormLabel>
+                    <FormLabel>5. Explique para que serve a manobra "Box Tático" e em que tipo de situação ela é mais eficaz.</FormLabel>
                     <FormControl>
                         <Textarea {...field} />
                     </FormControl>
