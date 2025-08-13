@@ -34,22 +34,22 @@ const hierarchy = [
   },
   {
     rank: "1º Sargento",
-    icon: <ChevronsUp className="h-6 w-6" />,
+    icon: <div className="flex flex-col -space-y-4"><ChevronUp className="h-6 w-6" /><ChevronUp className="h-6 w-6" /><ChevronUp className="h-6 w-6" /><ChevronUp className="h-6 w-6" /><ChevronUp className="h-6 w-6" /></div>,
     members: [],
   },
   {
     rank: "2º Sargento",
-    icon: <div className="flex flex-col -space-y-4"><ChevronUp className="h-6 w-6" /><ChevronUp className="h-6 w-6" /></div>,
+    icon: <div className="flex flex-col -space-y-4"><ChevronUp className="h-6 w-6" /><ChevronUp className="h-6 w-6" /><ChevronUp className="h-6 w-6" /><ChevronUp className="h-6 w-6" /></div>,
     members: [],
   },
     {
     rank: "3º Sargento",
-    icon: <ChevronUp className="h-6 w-6" />,
+    icon: <div className="flex flex-col -space-y-4"><ChevronUp className="h-6 w-6" /><ChevronUp className="h-6 w-6" /><ChevronUp className="h-6 w-6" /></div>,
     members: [],
   },
   {
     rank: "Cabo",
-    icon: <div className="flex"><ChevronUp className="h-6 w-6 text-primary/80" /><ChevronUp className="h-6 w-6 text-primary/80 -ml-4" /></div>,
+    icon: <div className="flex flex-col -space-y-4"><ChevronUp className="h-6 w-6 text-primary/80" /><ChevronUp className="h-6 w-6 text-primary/80" /></div>,
     members: [
       { name: "ALBERT PATRICK", id: "797" },
     ],
