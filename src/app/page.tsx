@@ -15,7 +15,7 @@ export default function Home() {
               Unidade S.P.E.E.D
             </h1>
             <p className="mt-4 text-lg md:text-xl lg:text-2xl text-slate-300 max-w-2xl mx-auto">
-              Special Police Emergency Enforcement Division: A vanguarda da LSPD em perseguições táticas e interceptação de alvos de alto risco em Grande Metrópole.
+             A elite da LSPD especializada em perseguições de alto risco. Dominamos o asfalto para garantir a segurança de Grande Metrópole.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/apply">
