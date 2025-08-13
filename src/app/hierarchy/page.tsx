@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Shield, Star, ChevronUp, ChevronsUp, Diamond, StarHalf } from "lucide-react";
+import { Shield, Star, ChevronUp, ChevronsUp, Diamond, StarHalf, Triangle } from "lucide-react";
 
 const hierarchy = [
   {
@@ -30,6 +30,16 @@ const hierarchy = [
   {
     rank: "2º Tenente",
     icon: <Diamond className="h-5 w-5" />,
+    members: [],
+  },
+  {
+    rank: "Aspirante-a-Oficial",
+    icon: <Star className="h-6 w-6 text-yellow-500" />,
+    members: [],
+  },
+  {
+    rank: "Subtenente",
+    icon: <Triangle className="h-5 w-5 fill-yellow-500 text-yellow-500" />,
     members: [],
   },
   {
