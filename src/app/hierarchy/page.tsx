@@ -61,7 +61,7 @@ const hierarchy = [
     rank: "Cabo",
     icon: <div className="flex flex-col -space-y-4"><ChevronUp className="h-6 w-6 text-primary/80" /><ChevronUp className="h-6 w-6 text-primary/80" /></div>,
     members: [
-      { name: "ALBERT PATRICK", id: "797" },
+      { name: "Albert Patrick", id: "797" },
     ],
   },
 ];
