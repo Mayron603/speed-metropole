@@ -29,14 +29,18 @@ export const authOptions: AuthOptions = {
   ],
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    async jwt({ token, account, profile }) {
-      if (account) { // On sign in
+    async jwt({ token, account }) {
+      // Persist the OAuth access_token to the token right after signin
+      if (account) {
         token.accessToken = account.access_token;
-        token.profile = profile;
       }
       return token;
     },
     async session({ session, token }) {
+      // Send properties to the client, like an access_token from a provider.
+      const user = session.user as any;
+      user.accessToken = token.accessToken; // Persist the access token to the session
+
       if (token.accessToken) {
         try {
           const response = await fetch(`https://discord.com/api/users/@me/guilds/${guildId}/member`, {
@@ -48,14 +52,13 @@ export const authOptions: AuthOptions = {
 
           if (response.ok) {
             const memberData = await response.json();
-            const user = session.user as any;
             if (memberData.nick) {
               user.nickname = memberData.nick;
             }
             if (memberData.roles) {
               user.roles = memberData.roles;
             }
-          } else {
+          } else if (response.status !== 404) { // Ignore 404s (user not in guild)
              console.error("Failed to fetch guild member info, Status:", response.status, "Body:", await response.text());
           }
         } catch (error) {
