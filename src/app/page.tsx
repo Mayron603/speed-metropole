@@ -15,7 +15,7 @@ export default function Home() {
               Unidade S.P.E.E.D
             </h1>
             <p className="mt-4 text-lg md:text-xl lg:text-2xl text-slate-300 max-w-2xl mx-auto">
-             A elite da LSPD especializada em perseguições de alto risco. Dominamos o asfalto para garantir a segurança de Grande Metrópole.
+             A unidade da LSPD especializada em perseguições. Dominamos o asfalto para garantir a segurança de Grande Metrópole.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/apply">
@@ -33,7 +33,7 @@ export default function Home() {
         <div className="container px-4 md:px-6">
           <h2 className="font-headline text-3xl font-bold tracking-tighter text-center sm:text-4xl md:text-5xl">Sobre a Unidade</h2>
           <p className="mx-auto max-w-3xl text-muted-foreground md:text-xl/relaxed text-center mt-4">
-            A S.P.E.E.D. é a unidade de elite da LSPD especializada em acompanhamentos táticos. Nossos operadores são mestres na arte da perseguição, utilizando técnicas avançadas para neutralizar ameaças em movimento com precisão e segurança.
+            A S.P.E.E.D. é a unidade da LSPD especializada em acompanhamentos. Nossos oficiais são mestres na perseguição, utilizando técnicas avançadas para neutralizar ameaças em movimento com precisão e segurança.
           </p>
           <div className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-1 md:gap-12 lg:max-w-5xl lg:grid-cols-3 mt-12">
             <Card className="shadow-lg hover:shadow-xl transition-shadow border-t-4 border-primary">
