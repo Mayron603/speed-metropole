@@ -68,14 +68,31 @@ export const authOptions: AuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async jwt({ token, account }) {
-      // Initial sign in
-      if (account) {
-        return {
-          accessToken: account.access_token,
-          expiresAt: account.expires_at,
-          refreshToken: account.refresh_token,
-          user: account.providerAccountId,
-        };
+      // Initial sign in: Fetch guild-specific data once.
+      if (account && account.access_token) {
+        token.accessToken = account.access_token;
+        token.refreshToken = account.refresh_token;
+        token.expiresAt = account.expires_at;
+
+        try {
+           const response = await fetch(`https://discord.com/api/users/@me/guilds/${guildId}/member`, {
+            headers: {
+              Authorization: `Bearer ${account.access_token}`,
+              'Content-Type': 'application/json',
+            },
+          });
+
+           if (response.ok) {
+            const memberData = await response.json();
+            token.nickname = memberData.nick;
+            token.roles = memberData.roles;
+          } else if (response.status !== 404) { // Ignore 404s (user not in guild)
+             console.error("Failed to fetch guild member info on login, Status:", response.status, "Body:", await response.text());
+          }
+        } catch (error) {
+           console.error("Error fetching guild member info on login:", error);
+        }
+         return token;
       }
       
       // Return previous token if the access token has not expired yet
@@ -87,36 +104,12 @@ export const authOptions: AuthOptions = {
       return refreshAccessToken(token);
     },
     async session({ session, token }) {
-      if (session.user && token.user) {
-         (session.user as any).id = token.user;
-      }
-
-      const user = session.user as any;
-      user.accessToken = token.accessToken; // Persist the access token to the session
-
-      if (token.accessToken) {
-        try {
-          const response = await fetch(`https://discord.com/api/users/@me/guilds/${guildId}/member`, {
-            headers: {
-              Authorization: `Bearer ${token.accessToken}`,
-              'Content-Type': 'application/json',
-            },
-          });
-
-          if (response.ok) {
-            const memberData = await response.json();
-            if (memberData.nick) {
-              user.nickname = memberData.nick;
-            }
-            if (memberData.roles) {
-              user.roles = memberData.roles;
-            }
-          } else if (response.status !== 404) { // Ignore 404s (user not in guild)
-             console.error("Failed to fetch guild member info, Status:", response.status, "Body:", await response.text());
-          }
-        } catch (error) {
-          console.error("Error fetching guild member info:", error);
-        }
+      // Pass the static data from the token to the session
+      if (session.user) {
+        (session.user as any).id = token.sub; // The user's Discord ID
+        (session.user as any).nickname = token.nickname;
+        (session.user as any).roles = token.roles;
+        (session.user as any).accessToken = token.accessToken; // Still useful for client-side API calls if needed
       }
       return session;
     }
