@@ -1,35 +1,35 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Shield, Star, ChevronUp, ChevronsUp, Anchor, Crown, ShieldCheck } from "lucide-react";
+import { Shield, Star, ChevronUp, ChevronsUp, Badge, StarHalf } from "lucide-react";
 
 const hierarchy = [
   {
     rank: "Comandante",
-    icon: <Star className="h-6 w-6 text-amber-400" />,
+    icon: <Star className="h-6 w-6 text-amber-400 fill-amber-400" />,
     members: [
       { name: "Hobbs Parker", id: "729" },
     ],
   },
   {
     rank: "Subcomandante",
-    icon: <Star className="h-6 w-6 text-slate-400" />,
+    icon: <StarHalf className="h-6 w-6 text-amber-400 fill-amber-400" />,
     members: [
       { name: "Tinga Souza", id: "896" },
     ],
   },
   {
     rank: "Capitão",
-    icon: <Crown className="h-6 w-6" />,
+    icon: <Badge className="h-6 w-6" />,
     members: [],
   },
   {
     rank: "1º Tenente",
-    icon: <ShieldCheck className="h-6 w-6" />,
+    icon: <Badge className="h-6 w-6" />,
     members: [],
   },
   {
     rank: "2º Tenente",
-    icon: <Shield className="h-6 w-6" />,
+    icon: <Badge className="h-6 w-6" />,
     members: [],
   },
   {
@@ -49,7 +49,7 @@ const hierarchy = [
   },
   {
     rank: "Cabo",
-    icon: <Anchor className="h-6 w-6" />,
+    icon: <div className="flex"><ChevronUp className="h-6 w-6 text-primary/80" /><ChevronUp className="h-6 w-6 text-primary/80 -ml-4" /></div>,
     members: [
       { name: "ALBERT PATRICK", id: "797" },
     ],
