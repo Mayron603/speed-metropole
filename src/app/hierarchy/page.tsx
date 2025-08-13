@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Shield, Star, ChevronDown, Anchor } from "lucide-react";
+import { Shield, Star, ChevronUp, ChevronsUp, Anchor, Crown, ShieldCheck } from "lucide-react";
 
 const hierarchy = [
   {
@@ -19,32 +19,32 @@ const hierarchy = [
   },
   {
     rank: "Capitão",
-    icon: <ChevronDown className="h-6 w-6" />,
+    icon: <Crown className="h-6 w-6" />,
     members: [],
   },
   {
     rank: "1º Tenente",
-    icon: <ChevronDown className="h-6 w-6" />,
+    icon: <ShieldCheck className="h-6 w-6" />,
     members: [],
   },
   {
     rank: "2º Tenente",
-    icon: <ChevronDown className="h-6 w-6" />,
+    icon: <Shield className="h-6 w-6" />,
     members: [],
   },
   {
     rank: "1º Sargento",
-    icon: <ChevronDown className="h-6 w-6" />,
+    icon: <ChevronsUp className="h-6 w-6" />,
     members: [],
   },
   {
     rank: "2º Sargento",
-    icon: <ChevronDown className="h-6 w-6" />,
+    icon: <div className="flex"><ChevronUp className="h-6 w-6" /><ChevronUp className="h-6 w-6 -ml-3" /></div>,
     members: [],
   },
     {
     rank: "3º Sargento",
-    icon: <ChevronDown className="h-6 w-6" />,
+    icon: <ChevronUp className="h-6 w-6" />,
     members: [],
   },
   {
@@ -73,7 +73,7 @@ export default function HierarchyPage() {
         {hierarchy.map((level) => (
           <Card key={level.rank} className="overflow-hidden shadow-md hover:shadow-lg transition-shadow">
             <CardHeader className="flex flex-row items-center gap-4 bg-muted/50 p-4 border-b">
-              <div className="p-2 bg-primary/10 rounded-md">
+              <div className="p-2 bg-primary/10 rounded-md w-10 h-10 flex items-center justify-center">
                 {level.icon}
               </div>
               <CardTitle className="font-headline text-xl">{level.rank}</CardTitle>
