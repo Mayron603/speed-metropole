@@ -134,12 +134,13 @@ export default function Home() {
               <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary font-semibold">Junte-se a Nós</div>
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Você tem o que é preciso?</h2>
               <p className="text-muted-foreground md:text-xl/relaxed">
-                Buscamos operadores com raciocínio rápido, controle emocional e habilidade de condução excepcional. Se você prospera sob pressão, seu lugar é na S.P.E.E.D.
+                Buscamos policiais com raciocínio rápido, controle emocional e habilidade de condução excepcional. Se você prospera sob pressão, seu lugar é na S.P.E.E.D.
               </p>
               <ul className="grid gap-2 text-muted-foreground">
                 <li className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-primary" /> Doutrina de perseguição de ponta</li>
                 <li className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-primary" /> Viaturas preparadas e de alta performance</li>
-                <li className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-primary" /> Trabalho em equipe e comunicação tática</li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-primary" /> Trabalho em equipe e comunicação</li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-primary" /> Patente mínima de Cabo</li>
               </ul>
               <Link href="/apply">
                 <Button size="lg" className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90 transition-transform hover:scale-105 shadow-lg shadow-primary/20">Inicie sua Aplicação</Button>
