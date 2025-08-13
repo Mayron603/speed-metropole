@@ -1,15 +1,53 @@
 import NextAuth from "next-auth"
 import DiscordProvider from "next-auth/providers/discord"
-import type { AuthOptions } from "next-auth";
+import type { AuthOptions, TokenSet } from "next-auth";
+import type { JWT } from "next-auth/jwt";
 
 const guildId = "1334721407925489778";
+
+// https://discord.com/developers/docs/topics/oauth2#shared-resources-oauth2-scopes
+const scopes = ["identify", "email", "guilds", "guilds.members.read"].join(" ");
+
+async function refreshAccessToken(token: JWT): Promise<JWT> {
+  try {
+    const url = "https://discord.com/api/v10/oauth2/token";
+    const body = new URLSearchParams({
+      client_id: process.env.DISCORD_CLIENT_ID!,
+      client_secret: process.env.DISCORD_CLIENT_SECRET!,
+      grant_type: "refresh_token",
+      refresh_token: token.refreshToken as string,
+    });
+
+    const response = await fetch(url, {
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      method: "POST",
+      body,
+    });
+
+    const tokens: TokenSet = await response.json();
+
+    if (!response.ok) throw tokens;
+
+    return {
+      ...token, // Keep the previous token properties
+      accessToken: tokens.access_token,
+      expiresAt: Math.floor(Date.now() / 1000 + (tokens.expires_in as number)),
+      // Fall back to old refresh token, but note that future refreshes may fail without a new one.
+      refreshToken: tokens.refresh_token ?? token.refreshToken,
+    };
+  } catch (error) {
+    console.error("Error refreshing access token", error);
+    // The error property will be used client-side to handle the refresh token error
+    return { ...token, error: "RefreshAccessTokenError" as const };
+  }
+}
 
 export const authOptions: AuthOptions = {
   providers: [
     DiscordProvider({
       clientId: process.env.DISCORD_CLIENT_ID!,
       clientSecret: process.env.DISCORD_CLIENT_SECRET!,
-      authorization: "https://discord.com/api/oauth2/authorize?scope=identify+email+guilds+guilds.members.read",
+      authorization: `https://discord.com/api/oauth2/authorize?scope=${scopes}`,
       profile(profile) {
         if (profile.avatar === null) {
           const defaultAvatarNumber = parseInt(profile.discriminator) % 5;
@@ -30,14 +68,29 @@ export const authOptions: AuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async jwt({ token, account }) {
-      // Persist the OAuth access_token to the token right after signin
+      // Initial sign in
       if (account) {
-        token.accessToken = account.access_token;
+        return {
+          accessToken: account.access_token,
+          expiresAt: account.expires_at,
+          refreshToken: account.refresh_token,
+          user: account.providerAccountId,
+        };
       }
-      return token;
+      
+      // Return previous token if the access token has not expired yet
+      if (token.expiresAt && Date.now() < (token.expiresAt as number) * 1000) {
+        return token;
+      }
+      
+      // Access token has expired, try to update it
+      return refreshAccessToken(token);
     },
     async session({ session, token }) {
-      // Send properties to the client, like an access_token from a provider.
+      if (session.user && token.user) {
+         (session.user as any).id = token.user;
+      }
+
       const user = session.user as any;
       user.accessToken = token.accessToken; // Persist the access token to the session
 
