@@ -10,19 +10,34 @@ export const authOptions: AuthOptions = {
       clientId: process.env.DISCORD_CLIENT_ID!,
       clientSecret: process.env.DISCORD_CLIENT_SECRET!,
       authorization: "https://discord.com/api/oauth2/authorize?scope=identify+email+guilds+guilds.members.read",
+      profile(profile) {
+        if (profile.avatar === null) {
+          const defaultAvatarNumber = parseInt(profile.discriminator) % 5;
+          profile.image_url = `https://cdn.discordapp.com/embed/avatars/${defaultAvatarNumber}.png`;
+        } else {
+          const format = profile.avatar.startsWith("a_") ? "gif" : "png";
+          profile.image_url = `https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.${format}`;
+        }
+        return {
+          id: profile.id,
+          name: profile.username,
+          email: profile.email,
+          image: profile.image_url,
+        };
+      },
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    async jwt({ token, account }) {
-      if (account) {
-        // This is the first sign-in.
+    async jwt({ token, account, profile }) {
+      if (account) { // On sign in
         token.accessToken = account.access_token;
+        token.profile = profile;
       }
       return token;
     },
     async session({ session, token }) {
-      if (session.user && token.accessToken) {
+      if (token.accessToken) {
         try {
           const response = await fetch(`https://discord.com/api/users/@me/guilds/${guildId}/member`, {
             headers: {

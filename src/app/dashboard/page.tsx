@@ -80,6 +80,8 @@ export default function DashboardPage() {
   if (match) {
     funcional = match[1];
     fullName = match[2];
+  } else {
+    fullName = user.name || "Operador";
   }
 
   return (
