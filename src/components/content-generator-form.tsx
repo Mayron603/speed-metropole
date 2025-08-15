@@ -43,7 +43,7 @@ export function ContentGeneratorForm() {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <Card>
         <CardHeader>
-          <CardTitle className="font-headline text-2xl">Gerador de Conteúdo</CarTitle>
+          <CardTitle className="font-headline text-2xl">Gerador de Conteúdo</CardTitle>
           <CardDescription>
             Descreva as atividades recentes da S.P.E.E.D para que a IA crie um anúncio ou notícia para o site.
           </CardDescription>
